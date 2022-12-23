@@ -5,3 +5,4 @@ pymupdf
 streamlit
 requests==2.28.1
 PyPDF2
+pdfplumber
