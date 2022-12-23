@@ -24,9 +24,9 @@ with st.container():
                 if uploaded_file is not None:
                     if uploaded_file.name[-4:] == 'docx':
                         cv_file = Scoring.docxread(uploaded_file)
-                        st.write("docx")
+                        #st.write("docx")
                     else:
-                        #cv_file = Scoring.pdfread(uploaded_file)
+                        cv_file = Scoring.pdfread(uploaded_file)
                         st.write("PDF")
                 else: st.write("Upload a CV to score")
 
