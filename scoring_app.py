@@ -24,7 +24,7 @@ with st.container():
                     st.write("1", uploaded_file.name[0][-4:])
                     st.write("2", uploaded_file.name[0][:-4])
                     st.write("3", uploaded_file.name[0])
-                    st.write("4", uploaded_file.name)
+                    st.write("4", uploaded_file.name[-4:])
                     if uploaded_file.name[0][-4:] == 'docx':
                         cv_file = Scoring.docxread(uploaded_file)
                         st.write("docx")
