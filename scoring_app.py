@@ -18,6 +18,7 @@ with st.container():
 
         submitted = st.form_submit_button("Check")
         if submitted:
+            st.write(Scoring.embedding(job_txt, model))
             with st.spinner('Calculating...'):
                 #time.sleep(5)
                 #st.write("run script ")
