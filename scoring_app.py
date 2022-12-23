@@ -54,6 +54,7 @@ with st.container():
                          #   cv_file = ''.join([cv, page.get_text()])
                         #cv_file = Scoring.pdfread(uploaded_file)
                         st.write("PDF")
+                        st.write(cv_file)
                 else: st.write("Upload a CV to score")
 
                 emb_cv = Scoring.embedding(cv_file, model)
