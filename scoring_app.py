@@ -18,7 +18,7 @@ def extract_data(feed):
         for p in pages:
             data = ''.join([data, p.extract_text()])
             #data.append(p.extract_tables())
-    return None
+    return data
 
 
 # pdffileobj = open(uploaded_file, 'rb')
