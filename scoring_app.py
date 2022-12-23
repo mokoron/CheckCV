@@ -27,10 +27,11 @@ with st.container():
                         cv_file = Scoring.docxread(uploaded_file)
                         #st.write("docx")
                     else:
-                        with fitz.open(uploaded_file) as doc:
-                            cv_file = ""
-                            for page in doc:
-                                cv_file = ''.join([cv, page.get_text()])
+                        doc = fitz.open(uploaded_file)
+                        #with fitz.open(uploaded_file) as doc:
+                        cv_file = ""
+                        for page in doc:
+                            cv_file = ''.join([cv, page.get_text()])
                         #cv_file = Scoring.pdfread(uploaded_file)
                         st.write("PDF")
                 else: st.write("Upload a CV to score")
