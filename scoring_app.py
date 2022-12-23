@@ -38,7 +38,7 @@ with st.container():
                 #@st.cache
                 emb_job_txt = Scoring.embedding(job_txt, model)
                 score = Scoring.similar(emb_cv, emb_job_txt)
-            st.success('Similarity score is:', score)
+            st.success(score)
 
 #st.write(cv_file)
 
