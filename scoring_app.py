@@ -8,6 +8,7 @@ st.header('Check if your CV fits the desirable position :sunglasses:')
 #st.title("📝 Check if your CV fits the desirable position")
 
 model = Scoring.load_model()
+st.write (model)
 with st.container():
     with st.form(key='cv_jobposition'):
 
