@@ -12,7 +12,7 @@ def load_model():
     model = SentenceTransformer('all-MiniLM-L12-v2')
     return model
 
-@st.cache
+#@st.cache
 def embedding(text, model):
     emb = model.encode(text)
     return emb
