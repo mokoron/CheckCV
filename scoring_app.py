@@ -1,5 +1,6 @@
 import streamlit as st
 import Scoring
+import fitz
 
 
 st.set_page_config(page_title="Check if your CV fits the desirable position", layout="centered", page_icon="📝",)
@@ -26,7 +27,11 @@ with st.container():
                         cv_file = Scoring.docxread(uploaded_file)
                         #st.write("docx")
                     else:
-                        cv_file = Scoring.pdfread(uploaded_file)
+                        with fitz.open(uploaded_file) as doc:
+                            cv_file = ""
+                            for page in doc:
+                                cv_file = ''.join([cv, page.get_text()])
+                        #cv_file = Scoring.pdfread(uploaded_file)
                         st.write("PDF")
                 else: st.write("Upload a CV to score")
 
