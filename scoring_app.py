@@ -13,7 +13,7 @@ model = Scoring.load_model()
 
 def extract_data(feed):
     data = []
-    with pdfplumber.load(feed) as pdf:
+    with pdfplumber.open(feed) as pdf:
         pages = pdf.pages
         for p in pages:
             data.append(p.extract_tables())
