@@ -30,6 +30,7 @@ with st.container():
                         st.write("PDF")
                 else: st.write("Upload a CV to score")
                 st.write(Scoring.embedding(cv_file, model))
+                st.write(Scoring.embedding(job_txt, model))
                 score = Scoring.similar(Scoring.embedding(cv_file, model), Scoring.embedding(job_txt, model))[0]
             st.success('Similarity score is:', score)
 
