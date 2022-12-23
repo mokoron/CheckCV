@@ -18,7 +18,6 @@ with st.container():
 
         submitted = st.form_submit_button("Check")
         if submitted:
-            st.write(Scoring.embedding(job_txt, model))
             with st.spinner('Calculating...'):
                 #time.sleep(5)
                 #st.write("run script ")
@@ -30,7 +29,7 @@ with st.container():
                         #cv_file = Scoring.pdfread(uploaded_file)
                         st.write("PDF")
                 else: st.write("Upload a CV to score")
-
+                st.write(Scoring.embedding(cv_file, model))
                 score = Scoring.similar(Scoring.embedding(cv_file, model), Scoring.embedding(job_txt, model))[0]
             st.success('Similarity score is:', score)
 
