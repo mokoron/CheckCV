@@ -26,11 +26,12 @@ with st.container():
                         cv_file = Scoring.docxread(uploaded_file)
                         st.write("docx")
                     else:
-                        cv_file = Scoring.pdfread(uploaded_file)
+                        #cv_file = Scoring.pdfread(uploaded_file)
+                        st.write("PDF")
                 else: st.write("Upload a CV to score")
 
                 score = Scoring.similar(Scoring.embedding(cv_file), Scoring.embedding(job_txt))[0]
             st.success('Similarity score is:', score)
 
 #st.write(cv_file)
-st.markdown("[mokoron.com](mokoron.com)")
+st.markdown("[mokoron.com](http://www.mokoron.com)")
