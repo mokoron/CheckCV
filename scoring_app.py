@@ -20,13 +20,15 @@ with st.container():
         if submitted:
             with st.spinner('Calculating...'):
                 #time.sleep(5)
-                st.write("run script ")
+                #st.write("run script ")
                 if uploaded_file is not None:
                     if uploaded_file.name[0][-4:] == 'docx':
                         cv_file = Scoring.docxread(uploaded_file)
+                        st.write("docx")
                     else:
                         cv_file = Scoring.pdfread(uploaded_file)
                 else: st.write("Upload a CV to score")
+
                 score = Scoring.similar(Scoring.embedding(cv_file), Scoring.embedding(job_txt))[0]
             st.success('Similarity score is:', score)
 
