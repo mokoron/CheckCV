@@ -1,6 +1,6 @@
 sentence-transformers
 docx2txt
-sklearn==1.2.0
+sklearn
 pymupdf
 streamlit
 requests==2.28.1
