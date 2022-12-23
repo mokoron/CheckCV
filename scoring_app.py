@@ -19,6 +19,7 @@ with st.container():
         submitted = st.form_submit_button("Check")
         if submitted:
             with st.spinner('Calculating...'):
+                st.write(uploaded_file.name[0][-4:])
                 #time.sleep(5)
                 #st.write("run script ")
                 if uploaded_file is not None:
