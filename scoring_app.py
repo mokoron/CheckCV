@@ -13,13 +13,13 @@ with st.container():
 
         uploaded_file = st.file_uploader("Choose a CV file", type=['pdf', 'docx'])
         #cv_file = "none"
-
+        st.write(uploaded_file.name[0][-4:])
+        st.write(uploaded_file.name[0][:-4])
         job_txt = st.text_area('Enter the job description here', height=300, value="Superhero Performer for Birthday Parties and Events. \nMust be energetic and love to work with kids. \nTraining provided. \nMost events include tips and travel. \nMust be have reliable transportation. \nBackground check required. \nExcellent pay. Must be 18+ Most events will be on the weekend during the day time.")
 
         submitted = st.form_submit_button("Check")
         if submitted:
             with st.spinner('Calculating...'):
-                st.write(uploaded_file.name[0][:-4])
                 #time.sleep(5)
                 #st.write("run script ")
                 if uploaded_file is not None:
