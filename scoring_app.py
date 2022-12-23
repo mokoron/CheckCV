@@ -8,7 +8,7 @@ st.header('Check if your CV fits the desirable position :sunglasses:')
 #st.title("📝 Check if your CV fits the desirable position")
 
 model = Scoring.load_model()
-st.write (model)
+
 with st.container():
     with st.form(key='cv_jobposition'):
 
@@ -30,7 +30,7 @@ with st.container():
                         st.write("PDF")
                 else: st.write("Upload a CV to score")
 
-                score = Scoring.similar(Scoring.embedding(cv_file), Scoring.embedding(job_txt))[0]
+                score = Scoring.similar(Scoring.embedding(cv_file, model), Scoring.embedding(job_txt, model))[0]
             st.success('Similarity score is:', score)
 
 #st.write(cv_file)
