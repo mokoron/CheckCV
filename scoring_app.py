@@ -30,16 +30,12 @@ with st.container():
                         st.write("PDF")
                 else: st.write("Upload a CV to score")
 
-
-                #@st.cache
                 emb_cv = Scoring.embedding(cv_file, model)
 
-
-                #@st.cache
                 emb_job_txt = Scoring.embedding(job_txt, model)
                 score = Scoring.similar(emb_cv, emb_job_txt)
-            st.success(score)
+            st.success(round(score[0]), 2)
 
 #st.write(cv_file)
 
-st.markdown("[mokoron.com](http://www.mokoron.com)")
+st.markdown("[mokoron.com](https://www.mokoron.com/Yuliya_Rubtsova_Sr_Product_Manager.pdf)")
