@@ -32,5 +32,5 @@ with st.container():
                 score = Scoring.similar(Scoring.embedding(cv_file), Scoring.embedding(job_txt))[0]
             st.success('Similarity score is:', score)
 
-st.write(cv_file)
+#st.write(cv_file)
 st.markdown("[mokoron.com](mokoron.com)")
