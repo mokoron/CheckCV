@@ -1,7 +1,6 @@
 import streamlit as st
 import Scoring
-import PyPDF2
-import pdfplumber
+
 
 
 st.set_page_config(page_title="Check if your CV fits the desirable position", layout="centered", page_icon="📝",)
@@ -10,35 +9,6 @@ st.header('Check if your CV fits the desirable position :sunglasses:')
 #st.title("📝 Check if your CV fits the desirable position")
 
 model = Scoring.load_model()
-
-def extract_data(feed):
-    data = ''
-    with pdfplumber.open(feed) as pdf:
-        pages = pdf.pages
-        for p in pages:
-            data = ''.join([data, p.extract_text()])
-            #data.append(p.extract_tables())
-    return data
-
-
-# pdffileobj = open(uploaded_file, 'rb')
-# pdfreader = PyPDF2.PdfReader(pdffileobj)
-
-# x = len(pdfreader.pages)
-# cv_file = ''
-# for i in range(len(pdfreader.pages)):
-#    pageobj = pdfreader.pages[i]
-#    cv_file = ''.join([cv_file, pageobj.extract_text()])
-
-# doc = fitz.open(uploaded_file)
-# with fitz.open(uploaded_file) as doc:
-# cv_file = ""
-# for page in doc:
-#   cv_file = ''.join([cv, page.get_text()])
-# cv_file = Scoring.pdfread(uploaded_file)
-
-
-
 
 
 with st.container():
@@ -56,11 +26,8 @@ with st.container():
                 if uploaded_file is not None:
                     if uploaded_file.name[-4:] == 'docx':
                         cv_file = Scoring.docxread(uploaded_file)
-                        #st.write("docx")
                     else:
-                        cv_file = extract_data(uploaded_file)
-                        st.write("PDF")
-                        st.write(cv_file)
+                        cv_file = Scoring.pdfread(uploaded_file)
                 else: st.write("Upload a CV to score")
 
                 emb_cv = Scoring.embedding(cv_file, model)

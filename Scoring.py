@@ -1,6 +1,7 @@
 from sentence_transformers import SentenceTransformer, util
 from sklearn.metrics.pairwise import cosine_similarity
 import docx2txt
+import pdfplumber
 import fitz
 import streamlit as st
 
@@ -23,13 +24,19 @@ def similar(emb1, emb2):
     return similarity[0] * 100
 
 
+#def pdfread(uploaded_doc):
+#    with fitz.open(uploaded_doc) as doc:
+#        cv = ""
+#        for page in doc:
+#            cv = ''.join([cv, page.get_text()])
+#    return cv
 def pdfread(uploaded_doc):
-    with fitz.open(uploaded_doc) as doc:
-        cv = ""
-        for page in doc:
-            cv = ''.join([cv, page.get_text()])
-    return cv
-
+    data = ''
+    with pdfplumber.open(uploaded_doc) as pdf:
+        pages = pdf.pages
+        for p in pages:
+            data = ''.join([data, p.extract_text()])
+    return data
 
 def docxread(uploaded_doc):
     cv = docx2txt.process(uploaded_doc)
