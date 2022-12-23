@@ -1,4 +1,4 @@
-#from sentence_transformers import SentenceTransformer, util
+from sentence_transformers import SentenceTransformer, util
 from sklearn.metrics.pairwise import cosine_similarity
 import docx2txt
 import fitz
@@ -7,8 +7,8 @@ import streamlit as st
 @st.cache
 def load_model():
    # model = SentenceTransformer('sentence-transformers/all-roberta-large-v1')
-     model = SentenceTransformer('all-MiniLM-L12-v2')
    # model = 'model\pytorch_model.bin'
+    model = SentenceTransformer('all-MiniLM-L12-v2')
     return model
 
 def embedding(text, model=load_model):
