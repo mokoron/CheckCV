@@ -12,7 +12,7 @@ with st.container():
     with st.form(key='cv_jobposition'):
 
         uploaded_file = st.file_uploader("Choose a CV file", type=['pdf', 'docx'])
-        cv_file = "none"
+        #cv_file = "none"
 
         job_txt = st.text_area('Enter the job description here', height=300, value="Superhero Performer for Birthday Parties and Events. \nMust be energetic and love to work with kids. \nTraining provided. \nMost events include tips and travel. \nMust be have reliable transportation. \nBackground check required. \nExcellent pay. Must be 18+ Most events will be on the weekend during the day time.")
 

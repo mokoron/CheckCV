@@ -4,6 +4,7 @@ import docx2txt
 import fitz
 import streamlit as st
 
+
 @st.cache
 def load_model():
    # model = SentenceTransformer('sentence-transformers/all-roberta-large-v1')
@@ -21,6 +22,7 @@ def similar(emb1, emb2):
 
 def pdfread(uploaded_doc):
     with fitz.open(uploaded_doc) as doc:
+        cv = ""
         for page in doc:
             cv = ''.join([cv, page.get_text()])
     return cv
