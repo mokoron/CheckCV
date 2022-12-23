@@ -12,12 +12,33 @@ st.header('Check if your CV fits the desirable position :sunglasses:')
 model = Scoring.load_model()
 
 def extract_data(feed):
-    data = []
+    data = ''
     with pdfplumber.open(feed) as pdf:
         pages = pdf.pages
         for p in pages:
-            data.append(p.extract_tables())
+            data = ''.join([data, p.extract_text()])
+            #data.append(p.extract_tables())
     return None
+
+
+# pdffileobj = open(uploaded_file, 'rb')
+# pdfreader = PyPDF2.PdfReader(pdffileobj)
+
+# x = len(pdfreader.pages)
+# cv_file = ''
+# for i in range(len(pdfreader.pages)):
+#    pageobj = pdfreader.pages[i]
+#    cv_file = ''.join([cv_file, pageobj.extract_text()])
+
+# doc = fitz.open(uploaded_file)
+# with fitz.open(uploaded_file) as doc:
+# cv_file = ""
+# for page in doc:
+#   cv_file = ''.join([cv, page.get_text()])
+# cv_file = Scoring.pdfread(uploaded_file)
+
+
+
 
 
 with st.container():
@@ -38,21 +59,6 @@ with st.container():
                         #st.write("docx")
                     else:
                         cv_file = extract_data(uploaded_file)
-                        #pdffileobj = open(uploaded_file, 'rb')
-                        #pdfreader = PyPDF2.PdfReader(pdffileobj)
-
-                        #x = len(pdfreader.pages)
-                        #cv_file = ''
-                        #for i in range(len(pdfreader.pages)):
-                        #    pageobj = pdfreader.pages[i]
-                        #    cv_file = ''.join([cv_file, pageobj.extract_text()])
-
-                        #doc = fitz.open(uploaded_file)
-                        #with fitz.open(uploaded_file) as doc:
-                        #cv_file = ""
-                        #for page in doc:
-                         #   cv_file = ''.join([cv, page.get_text()])
-                        #cv_file = Scoring.pdfread(uploaded_file)
                         st.write("PDF")
                         st.write(cv_file)
                 else: st.write("Upload a CV to score")
