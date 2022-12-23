@@ -5,7 +5,7 @@ import fitz
 import streamlit as st
 
 
-@st.cache
+#@st.cache
 def load_model():
     # model = SentenceTransformer('sentence-transformers/all-roberta-large-v1')
     # model = 'model\pytorch_model.bin'
