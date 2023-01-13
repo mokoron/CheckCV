@@ -38,4 +38,4 @@ with st.container():
 
 #st.write(cv_file)
 
-st.markdown("[mokoron.com](https://www.mokoron.com/Yuliya_Rubtsova_Sr_Product_Manager.pdf)")
+st.markdown("[mokoron.com](https://mokoron.com)")
